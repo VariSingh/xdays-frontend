@@ -1,0 +1,29 @@
+.body-container{
+    margin-top: 55px;
+}
+
+
+
+/*  css navbar toggle hack*/
+@media only screen and (min-width: 601px) {
+    .navbar-toggler {
+        display:none;
+    }
+    .navbar-collapse{
+        flex-flow: row nowrap!important;
+        justify-content: flex-start!important;
+        flex-basis: inherit!important;
+        flex-grow: inherit!important;
+        align-items: flex-start!important;
+    }
+    .collapse:not(.show) {
+        display: flex!important;
+    }
+    .navbar-collapse .navbar-nav {
+        flex-direction: row!important;
+    }
+    .navbar-collapse .navbar-nav .nav-link {
+        padding-right: .5rem!important;
+        padding-left: .5rem!important;
+    }
+  }
