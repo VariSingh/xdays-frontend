@@ -1,8 +1,4 @@
-
 <ul class="list-group">
-  <li class="list-group-item" routerLink="/challenge/1">Challenge 1</li>
-  <li class="list-group-item" routerLink="/challenge/2">Challenge 2</li>
-  <li class="list-group-item" routerLink="/challenge/3">Challenge 3</li>
-  <li class="list-group-item" routerLink="/challenge/4">Challenge 4</li>
-  <li class="list-group-item" routerLink="/challenge/5">Challenge 5</li>
+  <li class="list-group-item" routerLink="/challenge/{{ challenge._id }}" *ngFor="let challenge of challengeList">{{ challenge.name }}
+  </li>
 </ul>

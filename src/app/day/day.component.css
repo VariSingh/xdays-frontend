@@ -4,4 +4,8 @@
 .list-group-item:hover{
     background: #e9ecef;
 }
+.pull-right{
+    margin-right: 10px;
+    float: right;
+}
 
