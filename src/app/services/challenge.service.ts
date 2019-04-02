@@ -11,4 +11,9 @@ export class ChallengeService {
   getChallenges(){
     return this.http.get(`${environment.url}/challenge`);
   }
+
+  create(body:any)
+  {
+    return this.http.post(`${environment.url}/challenge`,body,{});
+  }
 }
