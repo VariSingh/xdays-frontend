@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-create-challenge',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateChallengeComponent implements OnInit {
 
-  constructor() { }
+  challengeForm: FormGroup;
+  submitted: boolean = false;
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+
+    this.challengeForm = this.formBuilder.group({
+      challengeName: ['', Validators.required],
+      numberOfDays: ['', Validators.required],
+      penality: ['', Validators.required],
+    });
+  }
+
+  createChallenge() {
+    this.submitted = true;
+    if (this.challengeForm.invalid) {
+      return;
+    }  
   }
 
 }

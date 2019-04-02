@@ -1,3 +1,7 @@
+<div class="jumbotron">
+  <a class="btn btn-primary btn-lg" href="javascript:void(0);" role="button" routerLink="/challenge/create">Create New Challenge</a>
+</div>
+
 <ul class="list-group">
   <li class="list-group-item" routerLink="/challenge/{{ challenge._id }}" *ngFor="let challenge of challengeList">{{ challenge.name }}
   </li>

@@ -18,16 +18,16 @@ const routes: Routes = [
   component: ChallengeComponent,
 },
 {
+  path: 'challenge/create',
+  component: CreateChallengeComponent,
+},
+{
   path: 'challenge/:challengeId',
   component: DayComponent,
 },
 {
   path: 'challenge/:challengeId/day/:dayId',
   component: DayDetailsComponent,
-},
-{
-  path: 'challenge/create',
-  component: CreateChallengeComponent,
 },
 {
   path: 'auth',
