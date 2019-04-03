@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { ChallengeService } from '../services/challenge.service';
+import { ToastrService } from 'ngx-toastr';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-create-challenge',
@@ -11,7 +13,7 @@ export class CreateChallengeComponent implements OnInit {
 
   challengeForm: FormGroup;
   submitted: boolean = false;
-  constructor(private formBuilder: FormBuilder, public challengeService:ChallengeService) { }
+  constructor(private formBuilder: FormBuilder, public challengeService:ChallengeService,private toastr:ToastrService,private router:Router) { }
 
   ngOnInit() {
 
@@ -22,6 +24,9 @@ export class CreateChallengeComponent implements OnInit {
       numberOfDays: ['', Validators.required],
       penality: ['', Validators.required],
     });
+
+
+  
   
   }
 
@@ -44,11 +49,15 @@ export class CreateChallengeComponent implements OnInit {
     this.challengeService.create(body).subscribe(
       (res) => {
         console.log(res);
+        this.toastr.success('', 'Challenge created');
+        setTimeout(()=>{
+          this.router.navigateByUrl('mychallenges')
+         },2000);
       },
       (error) => {
          console.log(error);
+         this.toastr.success(error, 'Oops! Something went wrong');
       })
-    console.log("submit challenge");
   }
 
 }

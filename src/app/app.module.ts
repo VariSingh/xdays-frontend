@@ -13,6 +13,9 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './auth/token-interceptor';
 import { CommonModule } from '@angular/common';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { AddDayComponent } from './add-day/add-day.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,8 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
     DayComponent,
     DayDetailsComponent,
     CreateChallengeComponent,
-    AuthComponent
+    AuthComponent,
+    AddDayComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,11 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-top-center',
+    })
   ],
   providers: [
     {
