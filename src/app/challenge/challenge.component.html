@@ -3,6 +3,6 @@
 </div>
 
 <ul class="list-group">
-  <li class="list-group-item" routerLink="/challenge/{{ challenge._id }}" *ngFor="let challenge of challengeList">{{ challenge.name }}
+  <li class="list-group-item" routerLink="/challenge/{{ challenge._id }}" *ngFor="let challenge of challengeList">{{ challenge.name }} -  {{ challenge.number_of_days }} days
   </li>
 </ul>

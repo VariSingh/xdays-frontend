@@ -1,11 +1,15 @@
 <div class="container">
-  <form>
+  <form [formGroup]="dayForm">
     <div class="form-group">
       <label for="exampleInputEmail1">Description</label>
-      <textarea class="form-control"  placeholder="Day details"></textarea>
+      <textarea class="form-control" formControlName="description" [readonly]="isReadOnly" placeholder="Day details"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Edit</button>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Date</label>
+      <input type="date" formControlName="date" [readonly]="isReadOnly" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary" *ngIf="true"  (click)="isReadOnly = false">Edit</button>
+    <button type="submit" class="btn btn-primary" *ngIf="true" (click)="update()">Update</button>
   </form>
 </div>
-
 

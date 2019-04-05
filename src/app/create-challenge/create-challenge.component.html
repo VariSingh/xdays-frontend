@@ -2,8 +2,8 @@
   <form [formGroup]="challengeForm" (ngSubmit)="createChallenge()">
 
     <div class="form-group">
-      <label for="exampleInputPassword1">Challenge name</label>
-      <input type="text" class="form-control" formControlName="challengeName" placeholder="Enter challenge name"
+      <label for="challengeName">Challenge name</label>
+      <input type="text" class="form-control" id="challengeName" formControlName="challengeName" placeholder="Enter challenge name"
         [ngClass]="{ 'is-invalid': submitted && challengeForm.controls.challengeName.errors }">
       <div class="form-control-feedback" *ngIf="submitted && challengeForm.controls.challengeName.errors">
         <p *ngIf="submitted && challengeForm.controls.challengeName.errors.required">Challenge name is required</p>
@@ -11,8 +11,8 @@
     </div>
 
     <div class="form-group">
-      <label for="exampleInputPassword1">Challenge description</label>
-      <input type="text" class="form-control" formControlName="challengeDescription" placeholder="Enter challenge description"
+      <label for="challengeDescription">Challenge description</label>
+      <input type="text" class="form-control" id="challengeDescription" formControlName="challengeDescription" placeholder="Enter challenge description"
         [ngClass]="{ 'is-invalid': submitted && challengeForm.controls.challengeDescription.errors }">
       <div class="form-control-feedback" *ngIf="submitted && challengeForm.controls.challengeDescription.errors">
         <p *ngIf="submitted && challengeForm.controls.challengeDescription.errors.required">Challenge description is required</p>
@@ -20,8 +20,8 @@
     </div>
 
     <div class="form-group">
-      <label for="exampleInputPassword1">Challenge start date</label>
-      <input type="date" class="form-control" formControlName="challengeStartDate" placeholder="Enter challenge description"
+      <label for="challengeStartDate">Challenge start date</label>
+      <input type="date" class="form-control" id="challengeStartDate" formControlName="challengeStartDate" placeholder="Enter challenge description"
         [ngClass]="{ 'is-invalid': submitted && challengeForm.controls.challengeStartDate.errors }">
       <div class="form-control-feedback" *ngIf="submitted && challengeForm.controls.challengeStartDate.errors">
         <p *ngIf="submitted && challengeForm.controls.challengeStartDate.errors.required">Challenge date is required</p>

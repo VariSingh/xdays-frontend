@@ -16,6 +16,7 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { AddDayComponent } from './add-day/add-day.component';
+import { CreateDayComponent } from './create-day/create-day.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AddDayComponent } from './add-day/add-day.component';
     DayDetailsComponent,
     CreateChallengeComponent,
     AuthComponent,
-    AddDayComponent
+    AddDayComponent,
+    CreateDayComponent
   ],
   imports: [
     BrowserModule,

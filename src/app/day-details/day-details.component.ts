@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./day-details.component.css']
 })
 export class DayDetailsComponent implements OnInit {
-
+  isReadOnly:boolean;
   constructor() { }
 
   ngOnInit() {
+    this.isReadOnly = true;
   }
 
+  update(){
+    alert("updated");
+  }
 }
