@@ -1,14 +1,26 @@
 <div class="container">
-  <form [formGroup]="dayForm">
+  <form [formGroup]="dayForm" (submit)="addDay()">
     <div class="form-group">
       <label for="exampleInputEmail1">Description</label>
       <textarea class="form-control" formControlName="description" placeholder="Day details"></textarea>
+      <div *ngIf="submit && dayForm.controls.description.errors">
+        <div *ngIf="dayForm.controls.description.errors.required">
+            Description is required
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">Date</label>
-      <input type="date" formControlName="date" class="form-control">
+      <!-- <input type="date" formControlName="date" class="form-control"> -->
+      <my-date-picker  name="date" [options]="myDatePickerOptions"
+                    formControlName="date"></my-date-picker>
+      <div *ngIf="submit && dayForm.controls.date.errors">
+          <div *ngIf="dayForm.controls.date.errors.required">
+              Date is required
+          </div>
+        </div>
     </div>
-    <button type="submit" class="btn btn-primary" (click)="addDay()">Add</button>
+    <button type="submit" class="btn btn-primary" >Add</button>
   </form>
 </div>
 

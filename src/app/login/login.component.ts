@@ -8,14 +8,13 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router:Router) {
-    if(localStorage.getItem('token')){
+  constructor(private router: Router) {
+    if (localStorage.getItem('token')) {
       this.router.navigateByUrl('/mychallenges');
     }
-   }
+  }
 
   ngOnInit() {
 
   }
-
 }

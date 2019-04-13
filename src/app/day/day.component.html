@@ -4,8 +4,10 @@
 
 
 <ul class="list-group">
-  <li class="list-group-item" routerLink="/challenge/{{ challengeId }}/day/{{ day._id }}"
+  <li class="list-group-item" [ngClass]="" routerLink="/challenge/{{ challengeId }}/day/{{ day._id }}"
     *ngFor="let day of daysList;let i = index">{{ day.description }}
    <span class="pull-right">{{ day.date | date }}</span>
   </li>
+</ul>
+<ul>
 </ul>

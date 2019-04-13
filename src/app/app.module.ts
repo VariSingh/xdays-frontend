@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { AddDayComponent } from './add-day/add-day.component';
 import { CreateDayComponent } from './create-day/create-day.component';
+import { MyDatePickerModule } from 'mydatepicker';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { CreateDayComponent } from './create-day/create-day.component';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    MyDatePickerModule,
     ToastrModule.forRoot({
       positionClass: 'toast-top-center',
     })
