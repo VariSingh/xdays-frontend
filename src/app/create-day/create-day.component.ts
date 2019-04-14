@@ -50,7 +50,7 @@ export class CreateDayComponent implements OnInit {
   }
 
   getDays() {
-    this.challengeId = this.route.snapshot.params.challengeId;
+    //this.challengeId = this.route.snapshot.params.challengeId;
     this.dayService.getDaysOfChallenge(this.challengeId).subscribe((response: any) => {
       console.log(response);
       const challengeDetails = response.challengeDetails;
@@ -101,7 +101,7 @@ export class CreateDayComponent implements OnInit {
       date: this.reformatDate(this.dayForm.controls.date.value)
     };
 
-    this.challengeService.addDay(data).subscribe(
+    this.challengeService.addDay(this.challengeId, data).subscribe(
       (res) => {
         console.log(res);
         this.toastr.success('', 'Progress added');

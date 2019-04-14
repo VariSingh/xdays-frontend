@@ -17,7 +17,7 @@ export class ChallengeService {
     return this.http.post(`${environment.url}/challenge`,body,{});
   }
 
-  addDay(body:any){
-    return this.http.post(`${environment.url}/challenge/5c8cd85dec4d9719880893ed/days`,body,{});
+  addDay(challengeId: string, body: any) {
+    return this.http.post(`${environment.url}/challenge/${challengeId}/days`, body, {});
   }
 }
