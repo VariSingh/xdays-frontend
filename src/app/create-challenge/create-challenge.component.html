@@ -21,9 +21,13 @@
 
     <div class="form-group">
       <label for="challengeStartDate">Challenge start date</label>
-      <input type="date" class="form-control" id="challengeStartDate" formControlName="challengeStartDate" placeholder="Enter challenge description"
-        [ngClass]="{ 'is-invalid': submitted && challengeForm.controls.challengeStartDate.errors }">
-      <div class="form-control-feedback" *ngIf="submitted && challengeForm.controls.challengeStartDate.errors">
+      <!-- <input type="date" class="form-control" id="challengeStartDate" formControlName="challengeStartDate" placeholder="Enter challenge description"
+        [ngClass]="{ 'is-invalid': submitted && challengeForm.controls.challengeStartDate.errors }"> -->
+      
+        <my-date-picker  name="challengeStartDate" [options]="myDatePickerOptions"
+        formControlName="challengeStartDate" [ngClass]="{ 'is-invalid': submitted && challengeForm.controls.challengeStartDate.errors }"></my-date-picker>
+
+        <div class="form-control-feedback" *ngIf="submitted && challengeForm.controls.challengeStartDate.errors">
         <p *ngIf="submitted && challengeForm.controls.challengeStartDate.errors.required">Challenge date is required</p>
       </div>
     </div>
