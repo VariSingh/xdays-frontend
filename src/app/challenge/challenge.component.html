@@ -3,6 +3,6 @@
 </div>
 
 <ul class="list-group">
-  <li class="list-group-item" routerLink="/challenge/{{ challenge._id }}" *ngFor="let challenge of challengeList">{{ challenge.name }} -  {{ challenge.completed_days }}/{{ challenge.number_of_days }} days - {{ challenge.completed_days/challenge.number_of_days*100 }} % completed
+  <li class="list-group-item" routerLink="/challenge/{{ challenge._id }}" [class.disabled]="checkExpired(challenge.start_date,challenge.number_of_days)" *ngFor="let challenge of challengeList">{{ challenge.name }} -  {{ challenge.completed_days }}/{{ challenge.number_of_days }} days - {{ challenge.completed_days/challenge.number_of_days*100 }} % completed ---- start date {{ challenge.start_date | date:'dd/MM/yyyy'}}
   </li>
 </ul>

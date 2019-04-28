@@ -26,13 +26,16 @@ export class CreateDayComponent implements OnInit {
     const ds = new Date();
     const du = new Date();
 
-    ds.setDate(ds.getDate() + 1);
-    du.setDate(du.getDate() - 7);
+    ds.setDate(ds.getDate() + 1); // date since. Disable all future dates
+    du.setDate(du.getDate() - 7); // date untill. Disable days until this day. Past dates more than 7 days old are disabled.
 
     this.myDatePickerOptions.disableSince = { year: ds.getFullYear(), month: ds.getMonth() + 1, day: ds.getDate() }
-    this.myDatePickerOptions.disableUntil = { year: du.getFullYear(), month: du.getMonth() + 1, day: du.getDate() }
     if (localStorage.getItem('disableDays')) {
+      // take disable days--localStorage.getItem('disableDays')
+      // take challenge start day
+      // final result should have dates starting from start day
       this.myDatePickerOptions.disableDays = JSON.parse(localStorage.getItem('disableDays'));
+      this.myDatePickerOptions.disableUntil = JSON.parse(localStorage.getItem('disableUntil'));
     } else {
       this.router.navigateByUrl('login');
     }

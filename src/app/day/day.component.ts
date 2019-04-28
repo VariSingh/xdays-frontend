@@ -13,6 +13,7 @@ export class DayComponent implements OnInit {
   daysList: any[] = [];
   challengeId: string;
   totalDays: any[];
+  disableButton = false;
   ngOnInit() {
     this.getDays();
   }
@@ -27,7 +28,7 @@ export class DayComponent implements OnInit {
   }
 
   subtractDate(date: Date, n: number) {
-    // Subtract n days from date 
+    // Subtract n days from date
     const d = new Date(date);
     const currentDate = d.getDate();
     d.setDate(currentDate - n);
@@ -53,15 +54,69 @@ export class DayComponent implements OnInit {
       const challengeDetails = response.challengeDetails;
       // this.totalDays = new Array(response.challengeDetails.number_of_days);
       this.daysList = response.daysList;
-      const disableDaysList = this.daysList.map((item: any) => {
-        const d = new Date(item.date);
-        return {year: d.getFullYear(), month: d.getMonth() + 1, day: d.getDate()};
-      });
+
+      const start_date = new Date(challengeDetails.start_date);
+
+
+      // const filterChallengeDays = this.daysList.filter((item: any) => {
+      //   const d = new Date(item.date);
+      //   return d > start_date;
+      // });
+      const disableDaysList = this.findDisableDays();
+
+      console.log(disableDaysList.length);
+      console.log(challengeDetails.completed_days);
+      if (challengeDetails.completed_days == disableDaysList.length) { // all days are filled
+        this.disableButton = true;
+      }
+
       localStorage.setItem('disableDays', JSON.stringify(disableDaysList));
+      localStorage.setItem('disableUntil', this.findDisableUntil(start_date));
     },
       (error: any) => {
 
       });
   }
+
+  findDisableDays() {
+    return this.daysList.map((item: any) => {
+      const d = new Date(item.date);
+      return { year: d.getFullYear(), month: d.getMonth() + 1, day: d.getDate() };
+    });
+  }
+
+  findDisableUntil(start_date: Date) {
+    // find the date before which all days should be disabled in calendar
+
+
+    // find start date
+    const sd = new Date(start_date);
+    sd.setHours(0, 0, 0, 0);
+    sd.setDate(sd.getDate() - 1);
+
+    // find today date
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    // find date 7 days back
+    const dMinus7 = new Date();
+    dMinus7.setHours(0, 0, 0, 0);
+    dMinus7.setDate(dMinus7.getDate() - 7);
+
+    let disableDate: Date;
+
+    if (sd > dMinus7 && sd < today) {
+      disableDate = sd;
+    } else if (sd > today) {
+      disableDate = today;
+      this.disableButton = true; // challenge not started yet so disable 'Add progress' button
+    } else {
+      disableDate = dMinus7;
+    }
+
+    return JSON.stringify({ year: disableDate.getFullYear(), month: disableDate.getMonth() + 1, day: disableDate.getDate() });
+  }
+
+
 
 }
