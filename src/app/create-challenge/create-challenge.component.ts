@@ -72,7 +72,7 @@ export class CreateChallengeComponent implements OnInit {
         console.log(res);
         this.toastr.success('', 'Challenge created');
         setTimeout(() => {
-          this.router.navigateByUrl('mychallenges')
+          this.router.navigateByUrl('mychallenges');
         }, 2000);
       },
       (error) => {

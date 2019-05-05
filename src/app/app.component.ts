@@ -7,10 +7,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  
-constructor(public router:Router){}
-  logout(){
+
+  constructor(public router: Router) { }
+
+  logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('disableDays');
+    localStorage.removeItem('disableUntil');
     this.router.navigateByUrl('/login');
   }
 

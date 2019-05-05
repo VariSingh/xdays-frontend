@@ -66,7 +66,7 @@ export class DayComponent implements OnInit {
 
       console.log(disableDaysList.length);
       console.log(challengeDetails.completed_days);
-      if (challengeDetails.completed_days == disableDaysList.length) { // all days are filled
+      if ((challengeDetails.completed_days == disableDaysList.length) && disableDaysList.length > 0) { // all days are filled
         this.disableButton = true;
       }
 
@@ -109,6 +109,7 @@ export class DayComponent implements OnInit {
       disableDate = sd;
     } else if (sd > today) {
       disableDate = today;
+      console.log("sd>today");
       this.disableButton = true; // challenge not started yet so disable 'Add progress' button
     } else {
       disableDate = dMinus7;
