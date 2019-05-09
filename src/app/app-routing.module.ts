@@ -8,7 +8,7 @@ import { CreateChallengeComponent } from './create-challenge/create-challenge.co
 import { AuthComponent } from './auth/auth.component';
 import { CreateDayComponent } from './create-day/create-day.component';
 
-const routes: Routes = [ 
+const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' }, 
   {
   path: 'login',
@@ -41,7 +41,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
